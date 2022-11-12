@@ -1,20 +1,21 @@
 {% extends 'base.html' %}
 
 {% load static %}
+{% load active_link_tags %}
 
 {% block content %}
 
 <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
 
-<ul>
-    <li><a class="active" href="{% url 'home' %}">Home</a></li>
-    <li><a href="{% url 'about' %}">About</a></li>
+<ul class="navbar">
+    <li><a class="{% active_link 'home' strict=True %}" href="{% url 'home' %}">Home</a></li>
+    <li><a class="{% active_link 'about' 'active' %}" href="{% url 'about' %}">About</a></li>
     {% if user.is_authenticated %}
-    <li><a href="{% url 'profile' %}">Profile</a></li>
-    <li><a href="{% url 'logout' %}">Logout</a></li>
+    <li><a class="{% active_link 'profile' 'active' %}" href="{% url 'profile' %}">Appointments</a></li>
+    <li><a class="{% active_link 'logout' 'active' %}" href="{% url 'logout' %}">Logout</a></li>
     {% else %}
-    <li><a href="{% url 'register' %}">Sign up</a></li>
-    <li><a href="{% url 'login' %}">Login</a></li>
+    <li><a class="{% active_link 'register' 'active' %}" href="{% url 'register' %}">Sign up</a></li>
+    <li><a class="{% active_link 'login' 'active' %}" href="{% url 'login' %}">Login</a></li>
     {% endif %}
 </ul>
 {% endblock content %}

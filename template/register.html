@@ -10,13 +10,10 @@
 
 <link rel="stylesheet" href="{% static 'css/register.css' %}">
 
-<div style="margin-top: 80px; width: 900px; margin: 80px auto;">
+<div class="form-wrapper">
     <form method="POST">
         {% csrf_token %}
-        <fieldset>
-            <legend>Join Now</legend>
-            {{ form | crispy }}
-        </fieldset>
+        {{ form | crispy }}
         <button class="btn" type="submit">
             Sign Up
         </button>

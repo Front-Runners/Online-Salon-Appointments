@@ -1,29 +1,53 @@
-ul{
+/*body style*/
+body {
+    background-image: url("/static/images/background4.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: white;
+}
+
+
+/*nav bar style*/
+ul.navbar {
+    background-color: rgba(255, 255, 255, 0.7);
+    color: black;
+    font-size: large;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    border: 0px;
+    margin-top: 0px;
+    z-index: 2;
+    backdrop-filter: saturate(180%) blur(10px);
     list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    border: 1px solid #e7e7e7;
-    background-color: #f3f3f3;
-}
-
-li{
+    padding-inline-start: 0px;
+  }
+  
+ 
+    
+  ul.navbar li{
     float: left;
-}
-
-li a{
+  }
+  
+  li a {
+    transition: 0.3s;
+    color: black;
     display: block;
-    color: #666;
     text-align: center;
     padding: 14px 16px;
     text-decoration: solid;
-}
-
-li a:hover:not(.active){
-    background-color: #ddd;
-}
-
-li a.active{
+  }
+  
+  li a:hover:not(.active) {
+    display: block;
+    color: rgb(255, 255, 255);
+    transition: 0.3s;
+    background-color: rgba(104, 47, 37, 0.87);
+  }
+  
+  
+  li a.active {
+    background-color: rgba(104, 47, 37, 0.87);
     color: white;
-    background-color: #9B59B6;
-}
+  }

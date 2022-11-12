@@ -1,28 +1,10 @@
 {% extends 'base.html' %}
-
+{% load static %}
 
 {% block content %}
 
 {% include 'nav_bar.html' %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+<h1>This is the home page</h1>
 
-<p>
-    Hello Everybody!
-</p>
-
-<h1>Recent Posts</h1>
-{% for post in post %}
-<div>
-    <p style="border: 1px solid blue;">
-    <h3>{{ post.post_title }}</h3>
-    <p>{{ post.date_published }}</p>
-    <p style="border: 1px solid blue; margin: 25px 50px; background-color: lightblue;">
-        {{ post.post_content }}
-    </p>
-    <p>Posted By {{ post.user_name }}</p>
-    <p> Visit profile
-        <a href="#">{{ post.user_profile_link }}</a>
-    </p>
-    </p>
-</div>
-{% endfor %}
 {% endblock content %}   

@@ -1,9 +1,14 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 {% include 'nav_bar.html' %}
+<link rel="stylesheet" href="{% static 'css/logout.css' %}">
 
-<p>You are Logged Out</p>
+<h1>You are Successfully Logged Out</h1>
+<br>
+<br>
+<h1>Thank you for using our services</h1>
 
 
 {% endblock content %} 

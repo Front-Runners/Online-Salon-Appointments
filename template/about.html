@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 {% include 'nav_bar.html' %}
+<link rel="stylesheet" href="{% static 'css/about.css' %}">
 
-<p>This is about us</p>
+<h1>This is about us</h1>
 
 {% endblock content %}   

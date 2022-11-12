@@ -1,3 +1,163 @@
-body{
-    background-image: url("/static/images/background.png");
+/*form style*/
+button {
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  background-color: #00AA66;
+  border-radius: 5px;
+  border: 2px solid #00AA66;
+  padding: 10px 10px;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+button:hover {
+  color: black;
+  transition: 0.5s;
+  background-color: white;
+  border: 2px solid white;
+  cursor: pointer;
+}
+
+
+input {
+  border: none;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 5px 5px;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+input:focus {
+  outline: none;
+}
+
+
+.invalid-feedback {
+  color: white;
+  background-color: rgba(211, 47, 47, 0.7);
+  padding: 5px 5px;
+  width: 57%;
+  border-radius: 5px;
+  margin-top: 0px;
+}
+
+
+div.form-wrapper{
+  background-color: rgba(32, 29, 27, 0.7);
+  width: 300px;
+  padding-bottom: 500px;
+  padding-left: 40px;
+  padding-top: 20px;
+  backdrop-filter: saturate(180%) blur(10px);
+  position: fixed;
+  right: 0px;
+  top: 50px;
+  height: 100%;
+  overflow: auto;
+}
+
+form{
+  position: relative;
+  left: 40px;
+  top: 20px;  
+}
+
+#hint_id_password1 ul{
+  list-style-type: none;
+  padding: 0px 0px;
+}
+
+#hint_id_password1 ul li{
+  padding: 5px 5px;
+  
+}
+
+#hint_id_username {
+  display: none;
+  width: 57%;
+  background-color: rgba(255, 255, 255, 0.7) !important;
+  color: black !important;
+  backdrop-filter: saturate(180%) blur(10px) !important;
+  border-radius: 5px;
+  padding: 5px 5px;
+  margin-bottom: 20px;
+}
+
+#hint_id_password1 {
+  display: none;
+  width: 57%;
+  background-color: rgba(255, 255, 255, 0.7) !important;
+  color: black !important;
+  backdrop-filter: saturate(180%) blur(10px) !important;
+  border-radius: 5px;
+  padding: 5px 5px;
+  margin-bottom: 20px;
+}
+
+#hint_id_password2 {
+  display: none;
+  width: 57%;
+  background-color: rgba(255, 255, 255, 0.7) !important;
+  color: black !important;
+  backdrop-filter: saturate(180%) blur(10px) !important;
+  border-radius: 5px;
+  padding: 5px 5px;
+  margin-bottom: 20px;
+}
+
+#hint_id_username::after {
+  content: " ";
+  position: absolute;
+  bottom: 100%;  /* At the top of the tooltip */
+  left: 10%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent rgba(255, 255, 255, 0.7) transparent;
+}
+
+#hint_id_password1::after {
+  content: " ";
+  position: absolute;
+  bottom: 100%;  /* At the top of the tooltip */
+  left: 10%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent rgba(255, 255, 255, 0.7) transparent;
+}
+
+
+#hint_id_password2::after {
+  content: " ";
+  position: absolute;
+  bottom: 100%;  /* At the top of the tooltip */
+  left: 10%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent rgba(255, 255, 255, 0.7) transparent;
+}
+
+#div_id_username:hover #hint_id_username {
+  display: block;
+}
+
+#div_id_password1:hover #hint_id_password1 {
+  display: block;
+}
+
+#div_id_password2:hover #hint_id_password2 {
+  display: block;
+}
+
+
+
+@media screen and (max-width: 1366px){
+  form{
+    font-size: small;
+  }
+
 }

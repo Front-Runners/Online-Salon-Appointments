@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'about',
     'api',
+    'active_link',
 ]
 
 MIDDLEWARE = [
