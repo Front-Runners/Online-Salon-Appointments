@@ -3,7 +3,7 @@ body {
     background-image: url("/static/images/background4.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: auto;
+    background-size: cover;
     color: white;
     overflow: auto !important;
 }

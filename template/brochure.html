@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'nav_bar.html' %}
+<link rel="stylesheet" href="{% static 'css/brochure.css' %}">
+
+
+<h1>Services Offered</h1>
+
+<div class="table-wrapper">
+<table>
+    <tbody>
+        <tr>
+            <td>
+                HAIRCUTS
+            </td>
+            <td>
+                EXTENSIONS
+            </td>
+        </tr>
+        <tr>
+            <td>
+                COLOR
+            </td>
+            <td>
+                TREATMENTS
+            </td>
+        </tr>
+        <tr>
+            <td>
+                STRAIGHTENING
+            </td>
+            <td>
+                CURLY HAIR
+            </td>
+        </tr>
+        <tr>
+            <td>
+                HIGHLIGHTING
+            </td>
+            <td>
+                STYLING
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+{% endblock content %}   

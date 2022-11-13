@@ -3,7 +3,9 @@ body {
     background-image: url("/static/images/background4.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
+    background-size: cover;
     color: white;
+    overflow: auto !important;
 }
 
 
@@ -22,6 +24,7 @@ ul.navbar {
     backdrop-filter: saturate(180%) blur(10px);
     list-style-type: none;
     padding-inline-start: 0px;
+    height: 60px;
   }
   
  
@@ -35,8 +38,9 @@ ul.navbar {
     color: black;
     display: block;
     text-align: center;
-    padding: 14px 16px;
+    padding: 16px 16px;
     text-decoration: solid;
+    height: 28px;
   }
   
   li a:hover:not(.active) {

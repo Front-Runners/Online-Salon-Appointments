@@ -42,8 +42,10 @@ INSTALLED_APPS = [
     'users',
     'crispy_forms',
     'about',
+    'brochure',
     'api',
     'active_link',
+    'verify_email.apps.VerifyEmailConfig',
 ]
 
 MIDDLEWARE = [
@@ -142,3 +144,12 @@ STATICFILES_DIRS = [
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 LOGIN_REDIRECT_URL = 'home'
 LOGIN_URL = 'login'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 465
+EMAIL_USE_SSL = True
+EMAIL_HOST_USER = 'front.runners.seneca@gmail.com'
+EMAIL_HOST_PASSWORD = 'mltwldpcntvupexk'
+
+DEFAULT_FROM_EMAIL = 'noreply<no_reply@domain.com>'

@@ -1,0 +1,38 @@
+/*main styles*/
+h1{
+    
+    width: 100%;
+    position: fixed;
+    top: 70px;
+    text-align: center;
+}
+
+
+
+table{
+   margin: auto;
+   margin-top: 150px;
+   border-spacing: 20px;
+}
+
+
+td{
+    text-align: center;
+    color: black;
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: saturate(180%) blur(10px);
+    padding: 30px 30px;
+    border-radius: 5px;
+    font-size: larger;
+    margin-left: 10px;
+    width: 400px;
+}
+
+
+
+@media screen and (max-width: 1366px){
+    td{
+      font-size: small;
+    }
+  
+  }
