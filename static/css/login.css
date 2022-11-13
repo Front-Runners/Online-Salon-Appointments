@@ -55,6 +55,10 @@ div.alert-block ul {
     border-radius: 5px;
 }
 
+div.alert-block li{    
+    list-style-type: none !important;
+}
+
 
 
 @media screen and (max-width: 1366px) {

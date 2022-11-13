@@ -27,6 +27,14 @@ td{
     font-size: larger;
     margin-left: 10px;
     width: 400px;
+    transition: 0.5s;
+    z-index: 2;
+}
+
+td:hover{
+    transform: scale(1.05);
+    transition: 0.5s;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.685);
 }
 
 

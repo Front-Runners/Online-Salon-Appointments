@@ -21,7 +21,7 @@ from users import views as users_view
 urlpatterns = [
     path('brochure/', include('brochure.urls')),
     path('api/', include('api.urls')),
-    path('profile/', users_view.profile, name='profile'),
+    path('appointments/', users_view.appointments, name='appointments'),
     path('about/', include('about.urls')),
     path('login/', auth_views.LoginView.as_view(template_name = 'login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name = 'logout.html'), name='logout'),

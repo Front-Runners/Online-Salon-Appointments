@@ -13,6 +13,7 @@ table{
    margin: auto;
    margin-top: 150px;
    border-spacing: 20px;
+   font-weight: bold;
 }
 
 
@@ -26,6 +27,11 @@ td{
     font-size: larger;
     margin-left: 10px;
     width: 400px;
+}
+
+td:hover{
+    transform: scale(1.8);
+    transition: 0.5s;
 }
 
 
