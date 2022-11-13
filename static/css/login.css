@@ -31,6 +31,10 @@ div.form-wrapper{
     top: 250px;
 }
 
+.form{
+    padding-left: 50px;
+}
+
 
 input {
     border: none;
