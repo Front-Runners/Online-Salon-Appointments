@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
-{% load crispy_forms_tags %}
+{% load static %}
+
 {% block content %}
 {% include 'nav_bar.html' %}
-
-<div>
-This is Appointments
-</div>
+<link rel="stylesheet" href="{% static 'css/appointments.css' %}">
+<h1>
+This is Appointments page
+</h1>
 
 {% endblock content %}   
