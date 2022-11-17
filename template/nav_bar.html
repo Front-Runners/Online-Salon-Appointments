@@ -12,7 +12,7 @@
     <li><a class="{% active_link 'about' 'active' %}" href="{% url 'about' %}">About</a></li>
     {% if user.is_authenticated %}
     <li><a class="{% active_link 'brochure' 'active' %}" href="{% url 'brochure' %}">Services</a></li>
-    <li><a class="{% active_link 'appointments' 'active' %}" href="{% url 'appointments' %}">Appointments</a></li>
+    <li><a class="{% active_link 'appointments || booking' 'active' %}" href="{% url 'appointments' %}">Appointments</a></li>
     <li><a class="logout{% active_link 'logout' 'active' %}" href="{% url 'logout' %}">Logout</a></li>
     {% else %}
     <li><a class="{% active_link 'brochure' 'active' %}" href="{% url 'brochure' %}">Brochure</a></li>

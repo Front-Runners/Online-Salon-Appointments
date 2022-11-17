@@ -43,9 +43,11 @@ INSTALLED_APPS = [
     'crispy_forms',
     'about',
     'brochure',
+    'booking',
     'api',
     'active_link',
     'verify_email.apps.VerifyEmailConfig',
+    'tempus_dominus',
 ]
 
 MIDDLEWARE = [

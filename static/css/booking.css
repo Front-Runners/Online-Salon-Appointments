@@ -1,8 +1,6 @@
-p{
-    font-style: italic;
-    margin-bottom: 100px;
+label{
+    position: relative;
 }
-
 
 /*form styles*/
 button {
@@ -25,21 +23,22 @@ button:hover {
     cursor: pointer;
 }
 
-input {
+input,select {
     border: none;
     background-color: rgba(255, 255, 255, 0.7);
     padding: 5px 5px;
     border-radius: 5px;
     margin-top: 10px;
     margin-bottom: 20px;
+    position: relative;
 }
 
-input:focus {
+input,select:focus {
     outline: none;
 }
 
 
-div.wrapper{
+div.form-wrapper{
     background-color: rgba(32, 29, 27, 0.7);
     width: 350px;
     border-radius: 5px;
@@ -48,11 +47,19 @@ div.wrapper{
     margin: auto;
     position: relative;
     top: 250px;
+    transition: width 2s, height 4s;
 }
 
+div.calender-wrapper{
+ margin-bottom: 20px;
+}
+
+option{
+    padding: 10px 10px;
+}
 
 @media screen and (max-width: 1366px) {
-    div.wrapper{
+    div.form-wrapper{
         position: relative;
         top: 150px;
     }

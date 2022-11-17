@@ -4,8 +4,18 @@
 {% block content %}
 {% include 'nav_bar.html' %}
 <link rel="stylesheet" href="{% static 'css/appointments.css' %}">
-<h1>
-This is Appointments page
-</h1>
+<div class="wrapper">
+    <h1>
+    Upcoming bookings
+    </h1>
+    <p>You dont have any bookings</p>
+
+    <h1>
+        Book new appointment
+    </h1>
+    <button class="btn" type="submit" onclick="location.href='/booking'">
+        Book
+    </button>
+</div>
 
 {% endblock content %}   
