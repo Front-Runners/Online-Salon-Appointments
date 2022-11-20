@@ -5,17 +5,66 @@
 {% include 'nav_bar.html' %}
 <link rel="stylesheet" href="{% static 'css/appointments.css' %}">
 <div class="wrapper">
+    <div class="bookings-wrapper">
     <h1>
     Upcoming bookings
     </h1>
+    {% if booking_details|length > 0 %}
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    First Name
+                </th>
+                <th>
+                    Last Name
+                </th>
+                <th>
+                    Date
+                </th>
+                <th>
+                    Time
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in booking_details %}
+            <tr>
+                <td class="table-data">
+                    {{ i.first_name }}
+                </td>
+                <td class="table-data">
+                    {{ i.last_name }}
+                </td>
+                <td class="table-data">
+                    {{ i.booking_date|date:"d-M-Y" }}
+                </td>
+                <td class="table-data">
+                    {{ i.booking_date|date:"h:i a" }}
+                </td>
+                <td class="details-button">
+                    <button class="btn" type="submit" onclick="location.href='/booking/{{ i.id }}/'">
+                        View Details
+                    </button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
     <p>You dont have any bookings</p>
+    {% endif %}
 
+    </div>
+
+    <div class="new-book-wrapper">
     <h1>
         Book new appointment
     </h1>
     <button class="btn" type="submit" onclick="location.href='/booking'">
         Book
     </button>
+    </div>
 </div>
 
 {% endblock content %}   

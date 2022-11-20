@@ -1,9 +1,7 @@
 /*main styles*/
-h1{
-    
+h1{    
     width: 100%;
-    position: fixed;
-    top: 70px;
+    position: sticky !important;
     text-align: center;
 }
 

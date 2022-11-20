@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'nav_bar.html' %}
+<link rel="stylesheet" href="{% static 'css/booking_details.css' %}">
+<div class="wrapper">
+    {% for i in booking_details %}
+    {% if i.is_active == 1 %}
+    <div class="bookings-details-wrapper">
+        <h1>
+        Booking Details
+        </h1>        
+        <h2>First Name: <span>{{ i.first_name }}</span></h2>
+        <h2>Last Name: <span>{{ i.last_name }}</span></h2>
+        <h2>Date & Time of Appointment: <span>{{ i.booking_date|date:"d-M-Y h:i a" }}</span></h2>
+        <h2>Location: <span>{{ i.location }}</span></h2>
+        <h2>Services: <span>{{ i.services }}</span></h2>        
+    </div>
+
+    <button class="btn-reschedule" type="submit" onclick="location.href='/reschedule'">
+        Reschedule Appointment
+    </button>
+
+    <button class="btn-cancel" type="submit" onclick="location.href='/cancel'">
+        Cancel Appointment
+    </button>
+
+    {% else %}
+    <h1>
+        <em>Booking Cancelled</em>
+    </h1>
+    {% endif %}
+    {% endfor %}
+    
+</div>
+
+{% endblock content %}  

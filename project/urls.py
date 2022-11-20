@@ -19,7 +19,8 @@ from django.contrib.auth import views as auth_views
 from users import views as users_view
 
 urlpatterns = [
-     path('booking/', include('booking.urls')),
+    path('booking/', include('booking.urls')),
+    path('booking/<int:id>/', include('booking.urls')),
     path('brochure/', include('brochure.urls')),
     path('api/', include('api.urls')),
     path('appointments/', users_view.appointments, name='appointments'),
