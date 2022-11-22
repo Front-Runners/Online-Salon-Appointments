@@ -21,11 +21,11 @@
         <h2>Services: <span>{{ i.services }}</span></h2>        
     </div>
 
-    <button class="btn-reschedule" type="submit" onclick="location.href='/reschedule'">
+    <button class="btn-reschedule" type="submit" onclick="location.href='/booking/reschedule/{{i.id}}/'">
         Reschedule Appointment
     </button>
 
-    <button class="btn-cancel" type="submit" onclick="location.href='/cancel'">
+    <button class="btn-cancel" type="submit" onclick="location.href='/booking/cancel/{{i.id}}/'">
         Cancel Appointment
     </button>
 

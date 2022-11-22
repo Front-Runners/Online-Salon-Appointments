@@ -1,0 +1,90 @@
+/*form styles*/
+label{
+    float: left;
+    margin: 10px;
+}
+
+button {
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    background-color: #00AA66;
+    border-radius: 5px;
+    border: 2px solid #00AA66;
+    padding: 10px 10px;
+    transition: 0.5s;
+    cursor: pointer;
+    margin-top: 20px;
+    position: sticky;
+    top: 200px;
+    right: 1000px;
+}
+
+button:hover {
+    color: black;
+    transition: 0.5s;
+    background-color: white;
+    border: 2px solid white;
+    cursor: pointer;
+}
+
+
+div.form-wrapper{
+    background-color: rgba(32, 29, 27, 0.7);
+    width: fit-content;
+    border-radius: 5px;
+    padding: 20px;
+    backdrop-filter: saturate(180%) blur(10px);
+    margin: auto;
+    position: relative;
+    top: 250px;
+}
+
+input {
+    border: none;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 5px 5px;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+input:focus {
+    outline: none;
+}
+
+
+div.alert-block ul {
+    color: white;
+    background-color: rgba(211, 47, 47, 0.7);
+    padding: 5px 5px;
+    width: fit-content;
+    border: 0px;
+    border-radius: 5px;
+}
+
+div.alert-block li{    
+    list-style-type: none !important;
+}
+
+
+textarea {
+    border: none;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 5px 5px;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+textarea:focus {
+    outline: none;
+}
+
+
+@media screen and (max-width: 1366px) {
+    div.form-wrapper{
+        position: relative;
+        top: 200px;
+    }
+}

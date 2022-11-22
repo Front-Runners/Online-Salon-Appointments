@@ -55,6 +55,8 @@ class Details(models.Model):
     location = models.CharField(max_length=150)
     services = models.CharField(max_length=500)
     is_active = models.IntegerField(default=1)
+    cancel_remarks = models.CharField(max_length=500, null=True)
+    duration = models.IntegerField(null=True)
 
 
     class Meta:
