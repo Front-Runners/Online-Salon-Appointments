@@ -1,9 +1,8 @@
 /*main styles*/
 h1{    
     width: 100%;
-    position: fixed;
+    position: sticky !important;
     text-align: center;
-    color: rgb(177, 60, 60) !important;
 }
 
 

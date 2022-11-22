@@ -1,4 +1,6 @@
-
+body{
+    overflow: auto;
+}
 
 p{
     font-style: italic;
@@ -85,7 +87,7 @@ table{
  }
 
 
- div.bookings-wrapper{
+ div.bookings-wrapper, div.past-bookings-wrapper{
     margin-bottom: 50px;
  }
 

@@ -1,7 +1,11 @@
 from django.db import models
 from django.urls import reverse
+from datetime import datetime
 
 # Create your models here.
+
+
+
 
 
 class Services(models.Model):
@@ -66,3 +70,7 @@ class Details(models.Model):
     def __str__(self):
         """String for representing the MyModelName object (in Admin site etc.)."""
         return self.username + " : " + self.booking_date
+
+    @property
+    def is_past_due(self):
+        return datetime.now() > self.booking_date

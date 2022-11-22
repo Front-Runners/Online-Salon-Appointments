@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import Services, Availability, Details
 from .forms import DateForm
 from django.contrib.auth.decorators import login_required
+from datetime import datetime
 
 # Create your views here
 @login_required
@@ -21,5 +22,7 @@ def booking(request):
 
 @login_required
 def bookingdetails(request,id):
-    booking_details = Details.objects.filter(id=id)
-    return render(request, 'booking_details.html',{'booking_details':booking_details})
+    current_date =  datetime.now()
+    booking_details = Details.objects.filter(id=id,booking_date__gte=current_date)
+    past_booking_details = Details.objects.filter(id=id,booking_date__lt=current_date)
+    return render(request, 'booking_details.html',{'booking_details':booking_details,'past_booking_details':past_booking_details})
