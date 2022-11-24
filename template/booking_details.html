@@ -4,7 +4,10 @@
 {% block content %}
 {% include 'nav_bar.html' %}
 <link rel="stylesheet" href="{% static 'css/booking_details.css' %}">
+
+{% if booking_details|length > 0 %}
 <div class="wrapper">
+
     {% for i in booking_details %}
     {% if i.is_active == 1 %}
     <div class="bookings-details-wrapper">
@@ -18,11 +21,11 @@
         <h2>Services: <span>{{ i.services }}</span></h2>        
     </div>
 
-    <button class="btn-reschedule" type="submit" onclick="location.href='/reschedule'">
+    <button class="btn-reschedule" type="submit" onclick="location.href='/booking/reschedule/{{i.id}}/'">
         Reschedule Appointment
     </button>
 
-    <button class="btn-cancel" type="submit" onclick="location.href='/cancel'">
+    <button class="btn-cancel" type="submit" onclick="location.href='/booking/cancel/{{i.id}}/'">
         Cancel Appointment
     </button>
 
@@ -34,5 +37,32 @@
     {% endfor %}
     
 </div>
+{% elif past_booking_details|length > 0 %}
+
+<div class="wrapper">
+
+    {% for i in past_booking_details %}
+    {% if i.is_active == 1 %}
+    <div class="bookings-details-wrapper">
+        <h1>
+        Booking Details
+        </h1>        
+        <h2>First Name: <span>{{ i.first_name }}</span></h2>
+        <h2>Last Name: <span>{{ i.last_name }}</span></h2>
+        <h2>Date & Time of Appointment: <span>{{ i.booking_date|date:"d-M-Y h:i a" }}</span></h2>
+        <h2>Location: <span>{{ i.location }}</span></h2>
+        <h2>Services: <span>{{ i.services }}</span></h2>        
+    </div>
+
+    {% else %}
+    <h1>
+        <em>Booking Cancelled</em>
+    </h1>
+    {% endif %}
+    {% endfor %}
+    
+</div>
+
+{% endif %}
 
 {% endblock content %}  

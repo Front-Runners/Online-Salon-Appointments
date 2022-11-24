@@ -108,6 +108,18 @@ form{
   margin-bottom: 20px;
 }
 
+
+#hint_id_phone {
+  display: none;
+  width: 57%;
+  background-color: rgba(255, 255, 255, 0.7) !important;
+  color: black !important;
+  backdrop-filter: saturate(180%) blur(10px) !important;
+  border-radius: 5px;
+  padding: 5px 5px;
+  margin-bottom: 20px;
+}
+
 #hint_id_username::after {
   content: " ";
   position: absolute;
@@ -142,6 +154,17 @@ form{
   border-color: transparent transparent rgba(255, 255, 255, 0.7) transparent;
 }
 
+#hint_id_phone::after {
+  content: " ";
+  position: absolute;
+  bottom: 100%;  /* At the top of the tooltip */
+  left: 10%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent rgba(255, 255, 255, 0.7) transparent;
+}
+
 #div_id_username:hover #hint_id_username {
   display: block;
 }
@@ -154,7 +177,9 @@ form{
   display: block;
 }
 
-
+#div_id_phone:hover #hint_id_phone {
+  display: block;
+}
 
 @media screen and (max-width: 1366px){
   form{

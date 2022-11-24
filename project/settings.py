@@ -47,7 +47,6 @@ INSTALLED_APPS = [
     'api',
     'active_link',
     'verify_email.apps.VerifyEmailConfig',
-    'tempus_dominus',
 ]
 
 MIDDLEWARE = [
@@ -155,4 +154,4 @@ EMAIL_USE_SSL = True
 EMAIL_HOST_USER = 'front.runners.seneca@gmail.com'
 EMAIL_HOST_PASSWORD = 'mltwldpcntvupexk'
 
-DEFAULT_FROM_EMAIL = 'noreply<no_reply@domain.com>'
+DEFAULT_FROM_EMAIL = 'noreply <front.runners.seneca@gmail.com>'

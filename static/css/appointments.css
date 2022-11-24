@@ -1,4 +1,7 @@
-
+body{
+    overflow: auto;
+    height: fit-content
+}
 
 p{
     font-style: italic;
@@ -14,9 +17,10 @@ button {
     background-color: #00AA66;
     border-radius: 5px;
     border: 2px solid #00AA66;
-    padding: 10px 10px;
+    padding: 15px 15px;
     transition: 0.5s;
     cursor: pointer;
+    font-weight: bold;
 }
 
 button:hover {
@@ -49,7 +53,7 @@ div.wrapper{
     backdrop-filter: saturate(180%) blur(10px);
     margin: auto;
     position: relative;
-    top: 250px;
+    top: 150px;
 }
 
 table{
@@ -85,7 +89,7 @@ table{
  }
 
 
- div.bookings-wrapper{
+ div.bookings-wrapper, div.past-bookings-wrapper, div.cancelled-bookings-wrapper{
     margin-bottom: 50px;
  }
 

@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+
 {% load static %}
 
 {% block content %}
@@ -52,10 +53,70 @@
         </tbody>
     </table>
     {% else %}
-    <p>You dont have any bookings</p>
+    <p>You dont have any upcoming bookings</p>
     {% endif %}
 
     </div>
+
+    <div class="past-bookings-wrapper">
+        <h1>
+        Past bookings
+        </h1>
+        {% if past_booking_details|length > 0 %}
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        First Name
+                    </th>
+                    <th>
+                        Last Name
+                    </th>
+                    <th>
+                        Date
+                    </th>
+                    <th>
+                        Time
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in past_booking_details %}
+                <tr>
+                    <td class="table-data">
+                        {{ i.first_name }}
+                    </td>
+                    <td class="table-data">
+                        {{ i.last_name }}
+                    </td>
+                    <td class="table-data">
+                        {{ i.booking_date|date:"d-M-Y" }}
+                    </td>
+                    <td class="table-data">
+                        {{ i.booking_date|date:"h:i a" }}
+                    </td>
+                    <td class="details-button">
+                        <button class="btn" type="submit" onclick="location.href='/booking/{{ i.id }}/'">
+                            View Details
+                        </button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>You dont have any past bookings</p>
+        {% endif %}
+    
+        </div>
+
+        {% if cancelled_booking_details|length > 0 %}
+        <div class="cancelled-bookings-wrapper">
+            <button class="btn" type="submit" onclick="location.href='/booking/cancelled_bookings/'">
+                View Cancelled Bookings
+            </button>
+        </div>
+        {% endif %}
 
     <div class="new-book-wrapper">
     <h1>

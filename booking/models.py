@@ -1,12 +1,18 @@
 from django.db import models
 from django.urls import reverse
+from datetime import datetime
+from phonenumber_field.modelfields import PhoneNumberField
 
 # Create your models here.
+
+
+
 
 
 class Services(models.Model):
     service_id = models.IntegerField(primary_key=True)
     service_name = models.CharField(max_length=150, help_text='Enter the service name')
+    duration = models.IntegerField(null=True)
 
 
     class Meta:
@@ -51,6 +57,8 @@ class Details(models.Model):
     location = models.CharField(max_length=150)
     services = models.CharField(max_length=500)
     is_active = models.IntegerField(default=1)
+    cancel_remarks = models.CharField(max_length=500, null=True)
+    duration = models.IntegerField(null=True)
 
 
     class Meta:
@@ -66,3 +74,28 @@ class Details(models.Model):
     def __str__(self):
         """String for representing the MyModelName object (in Admin site etc.)."""
         return self.username + " : " + self.booking_date
+
+    @property
+    def is_past_due(self):
+        return datetime.now() > self.booking_date
+
+
+
+
+class PhoneDetails(models.Model):
+    username = models.CharField(max_length=150)
+    phone = PhoneNumberField(null=False, blank=False, unique=True)
+
+    class Meta:
+        ordering = ['username']
+
+    
+    def get_absolute_url(self):
+        """Returns the URL to access a particular instance of MyModelName."""
+        return reverse('model-detail-view', args=[str(self.id)])
+
+    
+
+    def __str__(self):
+        """String for representing the MyModelName object (in Admin site etc.)."""
+        return self.username + " : " + self.phone

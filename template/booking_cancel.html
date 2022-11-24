@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'nav_bar.html' %}
+<link rel="stylesheet" href="{% static 'css/booking-cancel.css' %}">
+
+<div class="form-wrapper">
+    <form method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <div class="button-wrapper">
+            <button class="btn" type="submit">
+                Confirm Cancellation
+            </button>
+        </div>
+    </form>
+</div>
+
+{% endblock content %}   
