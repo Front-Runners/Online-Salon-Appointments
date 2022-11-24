@@ -12,24 +12,30 @@ from twilio.rest import Client
 @login_required
 def booking(request):
     if request.method == 'POST':
-        form = BookingForm()        
+        form = BookingForm(request.POST)        
 
         if form.is_valid():
             booking_date = form.cleaned_data.get('date')
             first_name = form.cleaned_data.get('first_name')
             last_name = form.cleaned_data.get('last_name')
-            services = form.cleaned_data.get('services')
+            service_id = form.cleaned_data.get('services')
             current_user = request.user
 
-            Details.objects.create(username=current_user,booking_date=booking_date,first_name=first_name,last_name=last_name,services=services,duration=0)
+            service_name = Services.objects.filter(service_id=service_id)[0].service_name
+            duration = Services.objects.filter(service_id=service_id)[0].duration
+
+            Details.objects.create(username=current_user,booking_date=booking_date,first_name=first_name,last_name=last_name,services=service_name,duration=duration,
+            location='1800 Shepperd Avenue E, Unit 5, North York, M2J 5A7')
 
             userdetails = User.objects.filter(username=current_user)
             phone = PhoneDetails.objects.values('phone').get(username=current_user)['phone']
+            booking_date = booking_date.strftime("%d-%b-%Y, %I:%M %p")
+
             for user in userdetails:
                 customer_email = user.email
             send_mail(
                 'Booking Confirmation',
-                'Your appointment is successfully booked',
+                'Your appointment is successfully booked for ' + booking_date,
                 None,
                 [customer_email],
                 fail_silently=False,
@@ -38,9 +44,9 @@ def booking(request):
             account_sid = 'ACf763273bb4f4aa3a6a4a1992db020f70'
             auth_token = 'dc46ffb70c76a90b5265fe4d318b2aa8'
             client = Client(account_sid, auth_token)
-
+            
             client.messages.create(
-                                        body=f'Your appointment is successfully booked',
+                                        body=f'Your appointment is successfully booked for ' + booking_date,
                                         from_='+1 865 568 8278',
                                         to=str(phone)
                                     )
@@ -49,12 +55,7 @@ def booking(request):
             return render(request, 'booking_success.html',{})
     else:
         form = BookingForm()
-        services = Services.objects.all()
-    
-        context = {
-            'form': form
-        }
-    return render(request,'booking.html', context)
+    return render(request,'booking.html', {'form':form})
 
 
 
@@ -107,12 +108,57 @@ def cancelbooking(request,id):
 
 @login_required
 def reschedulebooking(request,id):
-    None
+    if request.method == 'POST':
+        form = BookingForm(request.POST)        
+
+        if form.is_valid():
+            booking_date = form.cleaned_data.get('date')
+            first_name = form.cleaned_data.get('first_name')
+            last_name = form.cleaned_data.get('last_name')
+            service_id = form.cleaned_data.get('services')
+            current_user = request.user
+
+            service_name = Services.objects.filter(service_id=service_id)[0].service_name
+            duration = Services.objects.filter(service_id=service_id)[0].duration
+
+            Details.objects.filter(id=id).update(is_active=0,cancel_remarks='Rescheduled')
+
+            Details.objects.create(username=current_user,booking_date=booking_date,first_name=first_name,last_name=last_name,services=service_name,duration=duration,
+            location='1800 Shepperd Avenue E, Unit 5, North York, M2J 5A7')
+
+            userdetails = User.objects.filter(username=current_user)
+            phone = PhoneDetails.objects.values('phone').get(username=current_user)['phone']
+            booking_date = booking_date.strftime("%d-%b-%Y, %I:%M %p")
+
+            for user in userdetails:
+                customer_email = user.email
+            send_mail(
+                'Booking Confirmation',
+                'Your appointment is successfully booked for ' + booking_date,
+                None,
+                [customer_email],
+                fail_silently=False,
+            )
+
+            account_sid = 'ACf763273bb4f4aa3a6a4a1992db020f70'
+            auth_token = 'dc46ffb70c76a90b5265fe4d318b2aa8'
+            client = Client(account_sid, auth_token)
+            
+            client.messages.create(
+                                        body=f'Your appointment is successfully booked for ' + booking_date,
+                                        from_='+1 865 568 8278',
+                                        to=str(phone)
+                                    )
+
+
+            return render(request, 'booking_success.html',{})
+    else:
+        form = BookingForm()
+    return render(request,'booking.html', {'form':form})
 
 
 @login_required
 def cancelledbookings(request):
     current_user = request.user
     cancelled_booking_details = Details.objects.filter(username=current_user,is_active=0)
-    print('#test line')
     return render(request,'cancelled_bookings.html', {'cancelled_booking_details':cancelled_booking_details})

@@ -5,6 +5,32 @@
 {% include 'nav_bar.html' %}
 <link rel="stylesheet" href="{% static 'css/booking_success.css' %}">
 
-<h1>Booking is success</h1>
+<div class="wrapper">
+<h1>Booking Success</h1>
+
+<br>
+<br>
+<h1>Thank you for using our services</h1>
+
+<p>Redirecting to Appointments.....</p>
+<div id="circularG">
+	<div id="circularG_1" class="circularG"></div>
+	<div id="circularG_2" class="circularG"></div>
+	<div id="circularG_3" class="circularG"></div>
+	<div id="circularG_4" class="circularG"></div>
+	<div id="circularG_5" class="circularG"></div>
+	<div id="circularG_6" class="circularG"></div>
+	<div id="circularG_7" class="circularG"></div>
+	<div id="circularG_8" class="circularG"></div>
+</div> 
+
+</div>
+
+<script>
+    function redirect(){
+       window.location.href = "/appointments/";
+    }
+    setTimeout(redirect, 3000); //3000 is equivalent to 2 seconds
+</script>
 
 {% endblock content %}   
