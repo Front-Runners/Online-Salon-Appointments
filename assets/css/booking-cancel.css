@@ -1,4 +1,9 @@
 /*form styles*/
+label{
+    float: left;
+    margin: 10px;
+}
+
 button {
     text-align: center;
     text-decoration: none;
@@ -12,17 +17,22 @@ button {
 }
 
 button:hover {
-    color: black;
     transition: 0.5s;
-    background-color: white;
-    border: 2px solid white;
+    background-color: #af271d;
+    border: 2px solid #af271d;
     cursor: pointer;
+}
+
+div.button-wrapper{
+    padding: 10px 10px;
+    margin-top: 30px;
+    width: 100%;
 }
 
 
 div.form-wrapper{
     background-color: rgba(32, 29, 27, 0.7);
-    width: 350px;
+    width: fit-content;
     border-radius: 5px;
     padding: 20px;
     backdrop-filter: saturate(180%) blur(10px);
@@ -58,6 +68,19 @@ div.alert-block li{
     list-style-type: none !important;
 }
 
+
+textarea {
+    border: none;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 5px 5px;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+textarea:focus {
+    outline: none;
+}
 
 
 @media screen and (max-width: 1366px) {

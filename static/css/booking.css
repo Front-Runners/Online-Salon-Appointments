@@ -23,7 +23,7 @@ button:hover {
     cursor: pointer;
 }
 
-input,select {
+select {
     border: none;
     background-color: rgba(255, 255, 255, 0.7);
     padding: 5px 5px;
@@ -33,7 +33,7 @@ input,select {
     position: relative;
 }
 
-input,select:focus {
+select:focus {
     outline: none;
 }
 

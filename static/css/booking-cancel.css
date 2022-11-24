@@ -14,18 +14,19 @@ button {
     padding: 10px 10px;
     transition: 0.5s;
     cursor: pointer;
-    margin-top: 20px;
-    position: sticky;
-    top: 200px;
-    right: 1000px;
 }
 
 button:hover {
-    color: black;
     transition: 0.5s;
-    background-color: white;
-    border: 2px solid white;
+    background-color: #af271d;
+    border: 2px solid #af271d;
     cursor: pointer;
+}
+
+div.button-wrapper{
+    padding: 10px 10px;
+    margin-top: 30px;
+    width: 100%;
 }
 
 

@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+
 {% load static %}
 
 {% block content %}
@@ -108,6 +109,14 @@
         {% endif %}
     
         </div>
+
+        {% if cancelled_booking_details|length > 0 %}
+        <div class="cancelled-bookings-wrapper">
+            <button class="btn" type="submit" onclick="location.href='/booking/cancelled_bookings/'">
+                View Cancelled Bookings
+            </button>
+        </div>
+        {% endif %}
 
     <div class="new-book-wrapper">
     <h1>

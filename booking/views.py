@@ -1,27 +1,62 @@
 from django.shortcuts import render
-from .models import Services, Availability, Details
-from .forms import DateForm,BookingCancelForm
+from .models import Services, Availability, Details, PhoneDetails
+from .forms import BookingCancelForm, BookingForm
 from django.contrib.auth.decorators import login_required
 from datetime import datetime
 from django.core.mail import send_mail
 from django.contrib.auth.models import User
 from twilio.rest import Client
 
+
 # Create your views here
 @login_required
 def booking(request):
-    services = Services.objects.all()
-    availability = Availability.objects.all()
-    form = DateForm()
+    if request.method == 'POST':
+        form = BookingForm()        
 
-    context = {
-        'services': services,
-        'availability': availability,
-        'form': form
+        if form.is_valid():
+            booking_date = form.cleaned_data.get('date')
+            first_name = form.cleaned_data.get('first_name')
+            last_name = form.cleaned_data.get('last_name')
+            services = form.cleaned_data.get('services')
+            current_user = request.user
+
+            Details.objects.create(username=current_user,booking_date=booking_date,first_name=first_name,last_name=last_name,services=services,duration=0)
+
+            userdetails = User.objects.filter(username=current_user)
+            phone = PhoneDetails.objects.values('phone').get(username=current_user)['phone']
+            for user in userdetails:
+                customer_email = user.email
+            send_mail(
+                'Booking Confirmation',
+                'Your appointment is successfully booked',
+                None,
+                [customer_email],
+                fail_silently=False,
+            )
+
+            account_sid = 'ACf763273bb4f4aa3a6a4a1992db020f70'
+            auth_token = 'dc46ffb70c76a90b5265fe4d318b2aa8'
+            client = Client(account_sid, auth_token)
+
+            client.messages.create(
+                                        body=f'Your appointment is successfully booked',
+                                        from_='+1 865 568 8278',
+                                        to=str(phone)
+                                    )
+
+
+            return render(request, 'booking_success.html',{})
+    else:
+        form = BookingForm()
+        services = Services.objects.all()
+    
+        context = {
+            'form': form
         }
+    return render(request,'booking.html', context)
 
 
-    return render(request, 'booking.html',context)
 
 @login_required
 def bookingdetails(request,id):
@@ -42,6 +77,7 @@ def cancelbooking(request,id):
             
             current_user = request.user
             userdetails = User.objects.filter(username=current_user)
+            phone = PhoneDetails.objects.values('phone').get(username=current_user)['phone']
             for user in userdetails:
                 customer_email = user.email
             send_mail(
@@ -59,7 +95,7 @@ def cancelbooking(request,id):
             client.messages.create(
                                         body=f'Your booking has been successfully Cancelled',
                                         from_='+1 865 568 8278',
-                                        to='+1 647 862 6197' 
+                                        to=str(phone)
                                     )
 
 
@@ -72,3 +108,11 @@ def cancelbooking(request,id):
 @login_required
 def reschedulebooking(request,id):
     None
+
+
+@login_required
+def cancelledbookings(request):
+    current_user = request.user
+    cancelled_booking_details = Details.objects.filter(username=current_user,is_active=0)
+    print('#test line')
+    return render(request,'cancelled_bookings.html', {'cancelled_booking_details':cancelled_booking_details})

@@ -47,7 +47,6 @@ INSTALLED_APPS = [
     'api',
     'active_link',
     'verify_email.apps.VerifyEmailConfig',
-    'tempus_dominus',
 ]
 
 MIDDLEWARE = [

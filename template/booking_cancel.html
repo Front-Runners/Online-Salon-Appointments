@@ -9,9 +9,11 @@
     <form method="POST">
         {% csrf_token %}
         {{ form }}
-        <button class="btn" type="submit">
-            Confirm Cancellation
-        </button>
+        <div class="button-wrapper">
+            <button class="btn" type="submit">
+                Confirm Cancellation
+            </button>
+        </div>
     </form>
 </div>
 
