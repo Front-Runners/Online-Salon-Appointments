@@ -63,6 +63,47 @@ div.form-wrapper{
 
 
 
+div.xdsoft_datetimepicker{
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: saturate(180%) blur(10px);
+    border-radius: 5px;
+    padding: 5px 5px;
+}
+
+div.xdsoft_calendar{
+    padding: 5px 5px;
+}
+
+th,.xdsoft_date,.xdsoft_time{
+    color: black !important;
+}
+
+
+div.xdsoft_timepicker{
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: saturate(180%) blur(10px);
+    border-radius: 5px;
+}
+
+div.xdsoft_label{
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: saturate(180%) blur(10px);
+    border-radius: 5px;
+}
+
+
+div.xdsoft_today{
+    background-color: rgba(32, 29, 27, 0.7);
+}
+
+
+div.xdsoft_date{
+    color: black;
+    font-weight: bold;
+}
+
+
+
 label::before{
     content: "\A";
     white-space: pre;
