@@ -25,7 +25,6 @@ urlpatterns = [
     path('booking/cancel/<int:id>/', include('booking.urls')),
     path('booking/cancelled_bookings', include('booking.urls')),
     path('brochure/', include('brochure.urls')),
-    path('api/', include('api.urls')),
     path('appointments/', users_view.appointments, name='appointments'),
     path('about/', include('about.urls')),
     path('login/', auth_views.LoginView.as_view(template_name = 'login.html'), name='login'),

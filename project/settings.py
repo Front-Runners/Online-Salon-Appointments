@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'about',
     'brochure',
     'booking',
-    'api',
     'active_link',
     'verify_email.apps.VerifyEmailConfig',
 ]
@@ -87,9 +86,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'project',
-        'USER': 'root',
-        'PASSWORD': 'P@ssW0rd',
-        'HOST': '127.0.0.1',
+        'USER': 'sgroot',
+        'PASSWORD': '46JC8CcTgk7Nq&Wn',
+        'HOST': 'SG-frontrunners-db-55100.servers.mongodirector.com',
         'PORT': '3306',
         'OPTION': {'init_command':"SET sql_mode = 'STRICT_TRANS_TABLE',"},
     }
