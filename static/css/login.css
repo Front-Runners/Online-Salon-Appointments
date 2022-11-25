@@ -29,6 +29,7 @@ div.form-wrapper{
     margin: auto;
     position: relative;
     top: 250px;
+    font-size: large;
 }
 
 input {
