@@ -6,6 +6,7 @@ from datetime import datetime
 from django.core.mail import send_mail
 from django.contrib.auth.models import User
 from twilio.rest import Client
+from datetime import datetime, timedelta
 
 
 # Create your views here
@@ -29,13 +30,13 @@ def booking(request):
 
             userdetails = User.objects.filter(username=current_user)
             phone = PhoneDetails.objects.values('phone').get(username=current_user)['phone']
-            booking_date = booking_date.strftime("%d-%b-%Y, %I:%M %p")
+            booking_date_str = booking_date.strftime("%d-%b-%Y, %I:%M %p")
 
             for user in userdetails:
                 customer_email = user.email
             send_mail(
                 'Booking Confirmation',
-                'Your appointment is successfully booked for ' + booking_date,
+                'Your appointment is successfully booked for ' + booking_date_str,
                 None,
                 [customer_email],
                 fail_silently=False,
@@ -44,13 +45,27 @@ def booking(request):
             account_sid = 'ACf763273bb4f4aa3a6a4a1992db020f70'
             auth_token = 'dc46ffb70c76a90b5265fe4d318b2aa8'
             client = Client(account_sid, auth_token)
+
+            #reminder_date = datetime.strptime('26-Nov-2022, 01:25 AM','%d-%b-%Y, %I:%M %p')
+            #print(reminder_date.isoformat())
             
             client.messages.create(
-                                        body=f'Your appointment is successfully booked for ' + booking_date,
+                                        body=f'Your appointment is successfully booked for ' + booking_date_str,
                                         from_='+1 865 568 8278',
                                         to=str(phone)
                                     )
 
+            '''
+            client.messages.create(
+                                        body=f'Friendly reminder that you have an appointment scheduled for ' + booking_date_str,
+                                        from_='+1 865 568 8278',
+                                        to=str(phone),
+                                        schedule_type='fixed',
+                                        send_at='2022-11-26T01:30:00Z',
+                                        messaging_service_sid='MG6d49dc7c69e422813b0c37553b8acc7a'
+                                    )
+
+            '''
 
             return render(request, 'booking_success.html',{})
     else:
@@ -83,7 +98,7 @@ def cancelbooking(request,id):
                 customer_email = user.email
             send_mail(
                 'Cancellation Confirmation',
-                'Your booking has been successfully Cancelled',
+                'Your booking has been successfully cancelled',
                 None,
                 [customer_email],
                 fail_silently=False,
@@ -94,7 +109,7 @@ def cancelbooking(request,id):
             client = Client(account_sid, auth_token)
 
             client.messages.create(
-                                        body=f'Your booking has been successfully Cancelled',
+                                        body=f'Your booking has been successfully cancelled',
                                         from_='+1 865 568 8278',
                                         to=str(phone)
                                     )
@@ -134,7 +149,7 @@ def reschedulebooking(request,id):
                 customer_email = user.email
             send_mail(
                 'Booking Confirmation',
-                'Your appointment is successfully booked for ' + booking_date,
+                'Your appointment is successfully rescheduled for ' + booking_date,
                 None,
                 [customer_email],
                 fail_silently=False,
@@ -145,7 +160,7 @@ def reschedulebooking(request,id):
             client = Client(account_sid, auth_token)
             
             client.messages.create(
-                                        body=f'Your appointment is successfully booked for ' + booking_date,
+                                        body=f'Your appointment is successfully rescheduled for ' + booking_date,
                                         from_='+1 865 568 8278',
                                         to=str(phone)
                                     )
