@@ -8,16 +8,29 @@
 <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
 
 <ul class="navbar">
-    <li><a class="{% active_link 'home' strict=True %}" href="{% url 'home' %}">Home</a></li>
-    <li><a class="{% active_link 'about' 'active' %}" href="{% url 'about' %}">About</a></li>
+    <li class="default"><a class="{% active_link 'home' strict=True %}" href="{% url 'home' %}">Home</a></li>
+    <li class="mini"><a class="{% active_link 'home' strict=True %}" href="{% url 'home' %}"><img src="/static/images/home.png" alt="Home"></a></li>
+
+    <li class="default"><a class="{% active_link 'about' 'active' %}" href="{% url 'about' %}">About</a></li>
+    <li class="mini"><a class="{% active_link 'about' 'active' %}" href="{% url 'about' %}"><img src="/static/images/about.png" alt="About"></a></li>
     {% if user.is_authenticated %}
-    <li><a class="{% active_link 'brochure' 'active' %}" href="{% url 'brochure' %}">Services</a></li>
-    <li><a class="{% active_link 'appointments || booking' 'active' %}" href="{% url 'appointments' %}">Appointments</a></li>
-    <li><a class="logout{% active_link 'logout' 'active' %}" href="{% url 'logout' %}">Logout</a></li>
+    <li class="default"><a class="{% active_link 'brochure' 'active' %}" href="{% url 'brochure' %}">Services</a></li>
+    <li class="mini"><a class="{% active_link 'brochure' 'active' %}" href="{% url 'brochure' %}"><img src="/static/images/brochure.png" alt="Brochure"></a></li>
+
+    <li class="default"><a class="{% active_link 'appointments || booking' 'active' %}" href="{% url 'appointments' %}">Appointments</a></li>
+    <li class="mini"><a class="{% active_link 'appointments || booking' 'active' %}" href="{% url 'appointments' %}"><img src="/static/images/booking.png" alt="Appointments"></a></li>
+
+    <li class="default"><a class="logout{% active_link 'logout' 'active' %}" href="{% url 'logout' %}">Logout</a></li>
+    <li class="mini"><a class="logout{% active_link 'logout' 'active' %}" href="{% url 'logout' %}"><img src="/static/images/logout.png" alt="Logout"></a></li>
     {% else %}
-    <li><a class="{% active_link 'brochure' 'active' %}" href="{% url 'brochure' %}">Brochure</a></li>
-    <li><a class="{% active_link 'register' 'active' %}" href="{% url 'register' %}">Sign up</a></li>
-    <li><a class="{% active_link 'login' 'active' %}" href="{% url 'login' %}">Login</a></li>
+    <li class="default"><a class="{% active_link 'brochure' 'active' %}" href="{% url 'brochure' %}">Brochure</a></li>
+    <li class="mini"><a class="{% active_link 'brochure' 'active' %}" href="{% url 'brochure' %}"><img src="/static/images/brochure.png" alt="Brochure"></a></li>
+
+    <li class="default"><a class="{% active_link 'register' 'active' %}" href="{% url 'register' %}">Sign up</a></li>
+    <li class="mini"><a class="{% active_link 'register' 'active' %}" href="{% url 'register' %}"><img src="/static/images/register.png" alt="Sign up"></a></li>
+
+    <li class="default"><a class="{% active_link 'login' 'active' %}" href="{% url 'login' %}">Login</a></li>
+    <li class="mini"><a class="{% active_link 'login' 'active' %}" href="{% url 'login' %}"><img src="/static/images/login.png" alt="Login"></a></li>
     {% endif %}
 </ul>
 {% endblock content %}

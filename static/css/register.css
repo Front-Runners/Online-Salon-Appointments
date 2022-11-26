@@ -181,9 +181,17 @@ form{
   display: block;
 }
 
-@media screen and (max-width: 1366px){
-  form{
-    font-size: small;
-  }
+@media screen and (max-width: 1080){
+
+  div.form-wrapper{
+    width: 100%;
+    height: fit-content;
+    margin: auto;
+    font-size: large;
+}
+
+form{
+  margin: 50px;
+}
 
 }

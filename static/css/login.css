@@ -61,9 +61,10 @@ div.alert-block li{
 
 
 
-@media screen and (max-width: 1366px) {
+@media screen and (max-width: 1080px) {
     div.form-wrapper{
         position: relative;
         top: 200px;
+        width: 300px;
     }
 }

@@ -86,6 +86,8 @@ textarea:focus {
 @media screen and (max-width: 1366px) {
     div.form-wrapper{
         position: relative;
-        top: 200px;
+        top: 150px;
+        display: grid;
     }
+
 }

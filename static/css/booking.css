@@ -113,13 +113,6 @@ label::before{
     white-space: pre;
 }
 
-@media screen and (max-width: 1366px) {
-    div.form-wrapper{
-        position: relative;
-        top: 150px;
-    }
-}
-
 .errorlist {
     display: block;
     width: fit-content;
@@ -131,3 +124,22 @@ label::before{
     list-style-type: none;
     font-size: small;
   }
+
+
+@media screen and (max-width: 1080px) {
+    div.form-wrapper{
+        position: relative;
+        top: 200px;
+        width: 300px;
+        display: grid;
+        overflow: scroll;
+    }
+
+    
+    button{
+        float: left;
+        margin-top: 50px;
+        width: 100%;
+    }
+}
+

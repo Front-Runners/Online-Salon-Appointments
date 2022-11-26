@@ -61,5 +61,17 @@ div.wrapper{
     div.wrapper{
         position: relative;
         top: 125px;
+        bottom: 0px;
+        font-size: small;
+        display: grid;
+    }
+
+    button.btn-reschedule {
+        float: left;
+        margin-bottom: 30px;
+    }
+    
+    button.btn-cancel {
+        float: left;
     }
 }
