@@ -53,7 +53,7 @@ div.wrapper{
     backdrop-filter: saturate(180%) blur(10px);
     margin: auto;
     position: relative;
-    top: 150px;
+    top: 100px;
 }
 
 table{
@@ -109,11 +109,11 @@ table{
     }
 
     div.bookings-wrapper{
-        margin-top: 100px;
+        margin-top: 80px;
     }
 
     table{
-        width: 50%;
+        width: 90%;
     }
 
     

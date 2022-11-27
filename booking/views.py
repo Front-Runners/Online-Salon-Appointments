@@ -46,26 +46,12 @@ def booking(request):
             auth_token = 'dc46ffb70c76a90b5265fe4d318b2aa8'
             client = Client(account_sid, auth_token)
 
-            #reminder_date = datetime.strptime('26-Nov-2022, 01:25 AM','%d-%b-%Y, %I:%M %p')
-            #print(reminder_date.isoformat())
             
             client.messages.create(
                                         body=f'Your appointment is successfully booked for ' + booking_date_str,
                                         from_='+1 865 568 8278',
                                         to=str(phone)
                                     )
-
-            '''
-            client.messages.create(
-                                        body=f'Friendly reminder that you have an appointment scheduled for ' + booking_date_str,
-                                        from_='+1 865 568 8278',
-                                        to=str(phone),
-                                        schedule_type='fixed',
-                                        send_at='2022-11-26T01:30:00Z',
-                                        messaging_service_sid='MG6d49dc7c69e422813b0c37553b8acc7a'
-                                    )
-
-            '''
 
             return render(request, 'booking_success.html',{})
     else:

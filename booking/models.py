@@ -59,6 +59,7 @@ class Details(models.Model):
     is_active = models.IntegerField(default=1)
     cancel_remarks = models.CharField(max_length=500, null=True)
     duration = models.IntegerField(null=True)
+    is_reminder_sent = models.IntegerField(null=False,default=0)
 
 
     class Meta:

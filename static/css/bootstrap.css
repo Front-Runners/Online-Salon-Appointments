@@ -94,5 +94,20 @@ ul.navbar {
   li a.active img{
     color: white;
   }
+
+  body{
+    background-image: url("/static/images/background6.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 200% 100%;
+  }
+
+  li a:hover:not(.active) {
+    background-color: rgba(194, 143, 48, 0.87);
+  }
   
+  
+  li a.active {
+    background-color: rgba(194, 143, 48, 0.87);
+  }
   }

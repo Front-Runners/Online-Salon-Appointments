@@ -129,7 +129,7 @@ label::before{
 @media screen and (max-width: 1080px) {
     div.form-wrapper{
         position: relative;
-        top: 200px;
+        top: 100px;
         width: 300px;
         display: grid;
         overflow: scroll;
