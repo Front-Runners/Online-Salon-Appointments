@@ -1,5 +1,6 @@
 from django import forms
 from .models import Services
+from .validators import validate_availability
 
 class BookingForm(forms.Form):
     choices=[]
@@ -8,7 +9,7 @@ class BookingForm(forms.Form):
     for i in services:
         choices.append((str(i['service_id']),i['service_name']))
 
-    date = forms.DateTimeField(input_formats=['%d/%m/%Y %H:%M'], label='Date & Time')
+    date = forms.DateTimeField(input_formats=['%d/%m/%Y %H:%M'], label='Date & Time', validators = [validate_availability])
     first_name = forms.CharField(max_length=150)
     last_name = forms.CharField(max_length=150)    
     services = forms.CharField(label='Please select the service',widget = forms.Select(choices=choices))
