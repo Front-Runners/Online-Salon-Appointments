@@ -117,7 +117,8 @@
             </button>
         </div>
         {% endif %}
-
+    
+    {% if not admin_details|length > 0 %}
     <div class="new-book-wrapper">
     <h1>
         Book new appointment
@@ -126,6 +127,7 @@
         Book
     </button>
     </div>
+    {% endif %}
 </div>
 
 {% endblock content %}   

@@ -68,6 +68,20 @@ ul.navbar {
     display: none;
   }
 
+  li.admin-mode{
+    transition: 0.3s;
+    color: black;
+    display: block;
+    text-align: center;
+    padding: 16px 16px;
+    height: 28px;
+    color: brown;
+    font-weight: bolder;
+    font-size: larger;
+    float: right !important;
+    margin-right: 100px;
+  }
+
 
   @media screen and (max-width: 1080px){
   .default{

@@ -6,6 +6,7 @@ from booking.models import Details, PhoneDetails
 from datetime import datetime,timedelta
 from .validators import validate_verification
 from django.utils import timezone
+from django.contrib.auth.models import User
 
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm
@@ -28,11 +29,22 @@ def register(request):
 @login_required
 def appointments(request):
     current_user = request.user
+
+    is_admin = User.objects.values('is_superuser').get(username=current_user)['is_superuser']
     current_date =  timezone.now() - timedelta(hours= 5)
-    booking_details = Details.objects.filter(username=current_user,is_active=1,booking_date__gte=current_date)
-    past_booking_details = Details.objects.filter(username=current_user,is_active=1,booking_date__lt=current_date)
-    cancelled_booking_details = Details.objects.filter(username=current_user,is_active=0)
-    return render(request,'appointments.html', {'booking_details':booking_details,'past_booking_details':past_booking_details,'cancelled_booking_details':cancelled_booking_details})
+    admin_details = User.objects.filter(username=current_user,is_superuser=1)
+
+    if is_admin == 0:
+        booking_details = Details.objects.filter(username=current_user,is_active=1,booking_date__gte=current_date)
+        past_booking_details = Details.objects.filter(username=current_user,is_active=1,booking_date__lt=current_date)
+        cancelled_booking_details = Details.objects.filter(username=current_user,is_active=0)
+    elif is_admin == 1:
+        booking_details = Details.objects.filter(is_active=1,booking_date__gte=current_date)
+        past_booking_details = Details.objects.filter(is_active=1,booking_date__lt=current_date)
+        cancelled_booking_details = Details.objects.filter(is_active=0)
+        
+    
+    return render(request,'appointments.html', {'booking_details':booking_details,'past_booking_details':past_booking_details,'cancelled_booking_details':cancelled_booking_details, 'admin_details':admin_details})
 
 
 
