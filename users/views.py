@@ -3,8 +3,9 @@ from .forms import UserRegisterForm
 from django.contrib.auth.decorators import login_required
 from verify_email.email_handler import send_verification_email
 from booking.models import Details, PhoneDetails
-from datetime import datetime
+from datetime import datetime,timedelta
 from .validators import validate_verification
+from django.utils import timezone
 
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm
@@ -27,7 +28,7 @@ def register(request):
 @login_required
 def appointments(request):
     current_user = request.user
-    current_date =  datetime.now()
+    current_date =  timezone.now() - timedelta(hours= 5)
     booking_details = Details.objects.filter(username=current_user,is_active=1,booking_date__gte=current_date)
     past_booking_details = Details.objects.filter(username=current_user,is_active=1,booking_date__lt=current_date)
     cancelled_booking_details = Details.objects.filter(username=current_user,is_active=0)
