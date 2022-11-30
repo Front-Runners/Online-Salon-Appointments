@@ -29,8 +29,12 @@
     $(function () {
       $("#id_date").datetimepicker({
         format: 'd/m/Y H:i',
+        minDate: "1",
+        minTime: "9",
+        maxTime: "21"       
       });
     });
-  </script>
+      
+</script>
 
 {% endblock content %}

@@ -18,7 +18,8 @@
         <h2>Last Name: <span>{{ i.last_name }}</span></h2>
         <h2>Date & Time of Appointment: <span>{{ i.booking_date|date:"d-M-Y h:i a" }}</span></h2>
         <h2>Location: <span>{{ i.location }}</span></h2>
-        <h2>Services: <span>{{ i.services }}</span></h2>        
+        <h2>Services: <span>{{ i.services }}</span></h2>
+        <h2>Duration: <span>{{ i.duration }} Hrs</span></h2>      
     </div>
 
     <button class="btn-reschedule" type="submit" onclick="location.href='/booking/reschedule/{{i.id}}/'">
@@ -51,7 +52,8 @@
         <h2>Last Name: <span>{{ i.last_name }}</span></h2>
         <h2>Date & Time of Appointment: <span>{{ i.booking_date|date:"d-M-Y h:i a" }}</span></h2>
         <h2>Location: <span>{{ i.location }}</span></h2>
-        <h2>Services: <span>{{ i.services }}</span></h2>        
+        <h2>Services: <span>{{ i.services }}</span></h2>  
+        <h2>Duration: <span>{{ i.duration }} Hrs</span></h2>      
     </div>
 
     {% else %}
