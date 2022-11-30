@@ -61,7 +61,7 @@ div.form-wrapper{
     backdrop-filter: saturate(180%) blur(10px);
     margin: auto;
     position: relative;
-    top: 250px;
+    top: 150px;
     transition: width 2s, height 4s;
     font-size: large; 
 }
