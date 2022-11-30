@@ -1,12 +1,4 @@
-body{
-    background-image: url("/static/images/home-img4.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    z-index: 0;    
-  }
 
-  
   div.wrapper{
     position:fixed;
     padding:0;
@@ -37,3 +29,45 @@ body{
     font-family: 'Tangerine', serif;
     font-size: 80px;
   }
+
+  div.wrapper {
+    animation: fadeInAnimation ease 0.3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+  
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
+}
+
+
+  @media screen and (max-width: 1080px) {
+    div.wrapper{
+        width: 100%;
+        margin: auto;
+        overflow: auto;
+    }
+
+    div.main-text{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        text-align: center;
+        width: 80%;
+    }
+
+    h1{
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 10px;
+        width: 80%;
+    }
+
+    p{
+        margin-top: 50px;
+    }
+}
