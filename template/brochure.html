@@ -4,13 +4,17 @@
 {% block content %}
 {% include 'nav_bar.html' %}
 <link rel="stylesheet" href="{% static 'css/brochure.css' %}">
-
+<script>
+    function myFunction(x) {
+        //window.open("http://127.0.0.1:8000/about/")
+    }
+</script>
 
 <div class="table-wrapper">
 <table>
     <tbody>
         {% for i in services %}
-        <tr>
+        <tr onclick="myFunction(this)">
             <td>
                 {{ i.service_name }}
             </td>
