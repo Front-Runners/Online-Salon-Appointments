@@ -86,15 +86,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'project',
-<<<<<<< HEAD
-        'USER': 'root',
-        'PASSWORD': 'Prabhrehmat@01',
-        'HOST': '127.0.0.1',
-=======
         'USER': 'sgroot',
         'PASSWORD': '46JC8CcTgk7Nq&Wn',
         'HOST': 'SG-frontrunners-db-55100.servers.mongodirector.com',
->>>>>>> 849537ffb695418709c07068456d4de636fae6f3
         'PORT': '3306',
         'OPTION': {'init_command':"SET sql_mode = 'STRICT_TRANS_TABLE',"},
     }
