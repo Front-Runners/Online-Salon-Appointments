@@ -118,7 +118,7 @@
         </div>
         {% endif %}
     
-    {% if not admin_details|length > 0 %}
+    {% if not admin_details|length > 0 and not practitioner_details|length > 0%}
     <div class="new-book-wrapper">
     <h1>
         Book new appointment

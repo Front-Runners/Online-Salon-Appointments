@@ -64,22 +64,22 @@ ul.navbar {
     color: white;
   }
 
-  .mini{
+  .mini,.special-mini{
     display: none;
   }
 
-  li.admin-mode{
+  li.special{
     transition: 0.3s;
     color: black;
     display: block;
     text-align: center;
     padding: 16px 16px;
     height: 28px;
-    color: brown;
+    color: rgba(175, 58, 58);
     font-weight: bolder;
     font-size: larger;
     float: right !important;
-    margin-right: 100px;
+    margin-right: 100px;    
   }
 
 
@@ -88,8 +88,21 @@ ul.navbar {
     display: none;
   }
 
+  li.special{
+    display: none;
+  }
+
   .mini{
     display: flex;
+  }
+
+  li.special-mini{
+    height: 33px;
+    display: flex;
+    margin-top: 15px;
+    margin-right: 20px;
+    margin-left: 20px;
+    filter: opacity(0.3) drop-shadow(0 0 0 rgba(175, 58, 58));
   }
 
   img{

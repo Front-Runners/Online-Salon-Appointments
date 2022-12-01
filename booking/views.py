@@ -19,14 +19,16 @@ def booking(request):
             booking_date = form.cleaned_data.get('date')
             first_name = form.cleaned_data.get('first_name')
             last_name = form.cleaned_data.get('last_name')
-            service_id = form.cleaned_data.get('services')
+            service = form.cleaned_data.get('services')
             current_user = request.user
 
+            service_id = service.split(' - ')[0]
+            practitioner_name = service.split(' - ')[1]
             service_name = Services.objects.filter(service_id=service_id)[0].service_name
             duration = Services.objects.filter(service_id=service_id)[0].duration
 
             Details.objects.create(username=current_user,booking_date=booking_date,first_name=first_name,last_name=last_name,services=service_name,duration=duration,
-            location='1800 Shepperd Avenue E, Unit 5, North York, M2J 5A7')
+            location='1800 Shepperd Avenue E, Unit 5, North York, M2J 5A7',practitioner_name=practitioner_name)
 
             userdetails = User.objects.filter(username=current_user)
             phone = PhoneDetails.objects.values('phone').get(username=current_user)['phone']
@@ -63,9 +65,15 @@ def booking(request):
 @login_required
 def bookingdetails(request,id):
     current_date =  datetime.now()
+
+    current_user = request.user
+
+    admin_details = User.objects.filter(username=current_user,is_superuser=1)
+    practitioner_details = User.objects.filter(username=current_user,is_staff=1)
+
     booking_details = Details.objects.filter(id=id,booking_date__gte=current_date)
     past_booking_details = Details.objects.filter(id=id,booking_date__lt=current_date)
-    return render(request, 'booking_details.html',{'booking_details':booking_details,'past_booking_details':past_booking_details})
+    return render(request, 'booking_details.html',{'booking_details':booking_details,'past_booking_details':past_booking_details,'admin_details':admin_details,'practitioner_details':practitioner_details})
 
 
 @login_required

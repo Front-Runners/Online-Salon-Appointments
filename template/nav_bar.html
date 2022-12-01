@@ -21,7 +21,13 @@
     <li class="mini"><a class="{% active_link 'appointments || booking' 'active' %}" href="{% url 'appointments' %}"><img src="/static/images/booking.png" alt="Appointments"></a></li>
 
     {% if user.is_superuser %}
-    <li class="admin-mode">Admin Mode</li>
+    <li class="special">Admin Mode</li>
+    <li class="special-mini"><img src="/static/images/admin.png" alt="Admin Mode"></li>
+    {% endif %}
+
+    {% if user.is_staff %}
+    <li class="special">Practitioner Mode</li>
+    <li class="special-mini"><img src="/static/images/practitioner.png" alt="Practitioner Mode"></li>
     {% endif %}
 
     <li class="default"><a class="logout{% active_link 'logout' 'active' %}" href="{% url 'logout' %}">Logout</a></li>

@@ -57,7 +57,7 @@ div.form-wrapper{
   right: 0px;
   top: 50px;
   height: 100%;
-  overflow: auto;
+  overflow: scroll;
 }
 
 form{

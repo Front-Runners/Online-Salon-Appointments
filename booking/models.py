@@ -60,6 +60,7 @@ class Details(models.Model):
     cancel_remarks = models.CharField(max_length=500, null=True)
     duration = models.IntegerField(null=True)
     is_reminder_sent = models.IntegerField(null=False,default=0)
+    practitioner_name = models.CharField(null=True, max_length=150)
 
 
     class Meta:
@@ -100,3 +101,24 @@ class PhoneDetails(models.Model):
     def __str__(self):
         """String for representing the MyModelName object (in Admin site etc.)."""
         return self.username + " : " + self.phone
+
+
+    
+class PractitionerDetails(models.Model):
+    practitioner_name = models.CharField(max_length=150)
+    service_id = models.IntegerField(null=False)
+    username = models.CharField(max_length=150,null=False)
+
+    class Meta:
+        ordering = ['practitioner_name']
+
+    
+    def get_absolute_url(self):
+        """Returns the URL to access a particular instance of MyModelName."""
+        return reverse('model-detail-view', args=[str(self.id)])
+
+    
+
+    def __str__(self):
+        """String for representing the MyModelName object (in Admin site etc.)."""
+        return self.practitioner_name + " : " + self.service_id
