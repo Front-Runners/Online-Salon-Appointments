@@ -29,10 +29,10 @@ class BookingForm(forms.Form):
         service = cleaned_data.get("services")
 
         service_id = service.split(' - ')[0]
-        
+        practitioner_name = service.split(' - ')[1]
         duration = Services.objects.filter(service_id=service_id)[0].duration
 
-        if booking_date <= timezone.now() - timedelta(hours= 5):
+        if booking_date <= timezone.now():
             raise forms.ValidationError(
             ("Please choose a future date and time.")
         )
@@ -43,15 +43,16 @@ class BookingForm(forms.Form):
         ) 
 
         booking_dates_dict={}
-        booking_dates = Details.objects.values('booking_date','duration')
+        booking_dates = Details.objects.filter(is_active=1).values('id','booking_date','duration','practitioner_name')
 
         for i in booking_dates:
-            booking_dates_dict[i['booking_date']] = i['duration']
+            booking_dates_dict[i['id']] = [i['booking_date'],i['duration'],i['practitioner_name']]
 
+        print(booking_dates_dict)
         for k,v in booking_dates_dict.items():
-            if ((booking_date >= k) and (booking_date <= (k + timedelta(hours= v)))) or (((booking_date + timedelta(hours= duration)) >= k) and ((booking_date + timedelta(hours= duration)) <= (k + timedelta(hours= v)))):
+            if ( (booking_date >= v[0]) and (booking_date <= (v[0] + timedelta(hours= v[1]))) and (practitioner_name==v[2]) ) or (((booking_date + timedelta(hours= duration)) >= v[0]) and ((booking_date + timedelta(hours= duration)) <= (v[0] + timedelta(hours= v[1]))) and (practitioner_name==v[2])):
                 raise forms.ValidationError(
-                ("Date and time already booked. Please choose a different slot.")
+                ("Date and time already booked for the selected practitioner. Please choose a different slot.")
             )
 
         return cleaned_data

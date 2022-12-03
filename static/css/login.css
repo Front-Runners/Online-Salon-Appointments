@@ -28,8 +28,9 @@ div.form-wrapper{
     backdrop-filter: saturate(180%) blur(10px);
     margin: auto;
     position: relative;
-    top: 250px;
+    top: 200px;
     font-size: large;
+    display: flex;
 }
 
 input {

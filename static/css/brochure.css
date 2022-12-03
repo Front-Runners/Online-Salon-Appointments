@@ -37,6 +37,8 @@ td:hover{
 
     div.table-wrapper{
       display: grid;
+      margin-bottom: 50px;
+      overflow: auto;
     }
   
   }

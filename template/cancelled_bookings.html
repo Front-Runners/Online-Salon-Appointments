@@ -25,6 +25,9 @@
                 <th>
                     Time
                 </th>
+                <th>
+                    Remarks
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -41,6 +44,9 @@
                 </td>
                 <td class="table-data">
                     {{ i.booking_date|date:"h:i a" }}
+                </td>
+                <td class="table-data">
+                    {{ i.cancel_remarks }}
                 </td>
             </tr>
             {% endfor %}

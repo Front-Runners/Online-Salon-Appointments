@@ -23,7 +23,8 @@
         <h2>Duration: <span>{{ i.duration }} Hrs</span></h2>      
     </div>
 
-    {% if not admin_details|length > 0 and not practitioner_details|length > 0%}
+    {% if not admin_details|length > 0 and not practitioner_details|length > 0 %}
+    {% if cancel_enabled|length > 0 %}
     <button class="btn-reschedule" type="submit" onclick="location.href='/booking/reschedule/{{i.id}}/'">
         Reschedule Appointment
     </button>
@@ -31,6 +32,9 @@
     <button class="btn-cancel" type="submit" onclick="location.href='/booking/cancel/{{i.id}}/'">
         Cancel Appointment
     </button>
+
+    <p>*You can cancel/reschedule appointments scheduled within the next 12 hours upto 2 times only. Post which the account will get disabled.</p>
+    {% endif %}
     {% endif %}
 
     {% else %}

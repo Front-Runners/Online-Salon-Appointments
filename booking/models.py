@@ -86,7 +86,7 @@ class Details(models.Model):
 
 class PhoneDetails(models.Model):
     username = models.CharField(max_length=150)
-    phone = PhoneNumberField(null=False, blank=False, unique=True)
+    phone = PhoneNumberField(null=False, blank=False, default=0)
 
     class Meta:
         ordering = ['username']
@@ -122,3 +122,24 @@ class PractitionerDetails(models.Model):
     def __str__(self):
         """String for representing the MyModelName object (in Admin site etc.)."""
         return self.practitioner_name + " : " + self.service_id
+
+
+
+class CancellationController(models.Model):
+    username = models.CharField(max_length=150,null=False)
+    no_of_cancels = models.IntegerField(null=False, default=0)
+    is_login_disabled = models.IntegerField(null=False, default=0)
+
+    class Meta:
+        ordering = ['username']
+
+    
+    def get_absolute_url(self):
+        """Returns the URL to access a particular instance of MyModelName."""
+        return reverse('model-detail-view', args=[str(self.id)])
+
+    
+
+    def __str__(self):
+        """String for representing the MyModelName object (in Admin site etc.)."""
+        return self.username + " : " + self.no_of_cancels

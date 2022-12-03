@@ -201,5 +201,7 @@ p{
         top: 50px;
         width: 300px;
 		display: grid;
+		margin-bottom: 100px;
+      	overflow: auto;
     }
 }

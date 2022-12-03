@@ -56,9 +56,15 @@ div.form-wrapper{
   position: fixed;
   right: 0px;
   top: 50px;
-  height: 100%;
-  overflow: scroll;
+  height: 100%;  
 }
+
+div.wrapper{
+  width: 100%;
+  overflow: auto;
+}
+
+
 
 form{
   align-self: center;
