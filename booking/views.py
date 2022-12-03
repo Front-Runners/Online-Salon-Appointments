@@ -261,9 +261,12 @@ def reschedulebooking(request,id):
             no_of_cancels = CancellationController.objects.values('no_of_cancels').get(username=current_user)['no_of_cancels']
             is_login_disabled = CancellationController.objects.values('is_login_disabled').get(username=current_user)['is_login_disabled']
 
+            old_booking_date = Details.objects.values('booking_date').get(id=id)['booking_date']
+            old_booking_date_str = old_booking_date.strftime("%d-%b-%Y, %I:%M %p")
+
             current_date =  timezone.now()
 
-            if no_of_cancels == 2 and ((booking_date - current_date) <= timedelta(hours=12)):
+            if no_of_cancels == 2 and ((old_booking_date - current_date) <= timedelta(hours=12)):
                 no_of_cancels = no_of_cancels + 1
                 is_login_disabled = 1
                 Details.objects.filter(id=id).update(is_active=0,cancel_remarks='Cancelled - Maximum no. of attempts exceeded')
@@ -317,7 +320,7 @@ def reschedulebooking(request,id):
                 
                 return render(request, 'booking_failed.html',{})                
             else:
-                if (booking_date - current_date) <= timedelta(hours=12):
+                if (old_booking_date - current_date) <= timedelta(hours=12):
                     no_of_cancels = no_of_cancels + 1
                     is_login_disabled = 0
                 Details.objects.filter(id=id).update(is_active=0,cancel_remarks='Rescheduled')
@@ -346,8 +349,7 @@ def reschedulebooking(request,id):
                                         to=str(phone))
 
                 
-                old_booking_date = Details.objects.values('booking_date').get(id=id)['booking_date']
-                old_booking_date_str = old_booking_date.strftime("%d-%b-%Y, %I:%M %p")
+                
                 userdetails = User.objects.filter(username=old_practitioner_username)
                 phone = PhoneDetails.objects.values('phone').get(username=old_practitioner_username)['phone']
 
