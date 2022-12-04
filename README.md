@@ -19,8 +19,11 @@ This will be convenient and easy for the customers especially in their busy live
 
 
 ## *Work flow*
-Customers and Practitioners can register their account through the Sign Up page. The email and mobile number should be unique. Passwords should meet minimum requirements
-are provided by the website. Post signup, the user will get a verification mail. He will be able to login only after successfull mail verification. 
+Customers and Practitioners can register their account through the Sign Up page. The email and mobile number should be unique. Passwords should meet minimum requirements as provided by the website.
+>For admins, the account will be registered by our backend team at Front Runners and the credentials will be shared seperately
+>Registered practitioners will be promoted as staff by our backend team at Front Runners
+
+Post signup, the user will get a verification mail. He will be able to login only after successfull mail verification. 
 
 Once logged in, customer will be automatically redirected to the Apppointments page, where he can vew upcoming bookings, past bookings and also book a new appointment.
 
@@ -33,11 +36,11 @@ In the Upcoming bookings, the customer can view his booking details page where h
 
 ## *Code Organization*
 In this web application project, the code is divided into different applications, each component like the home page, about page, booking page is an application here. All project conmfiguration details
-are located in the file ./project/settings.py. Here we have mentioned the installed applications details, database connection details, SMTP server details etc. To run the server, ./manage.py file is used.
+are located in the file _./project/settings.py_. Here we have mentioned the installed applications details, database connection details, SMTP server details etc. To run the server, _./manage.py_ file is used.
 
 Once the server starts, based on the URL provided in the browser, its matched with the URLs present in
-./project/urls.py. When the matched URL is found, the control will be given to the corresponding app's
-url.py file. Then the corresponding function in the views.py file will be called which will then access the data through the defined models and calls the template to show the output to the User Interface
+_./project/urls.py_. When the matched URL is found, the control will be given to the corresponding app's
+_url.py_ file. Then the corresponding function in the _views.py_ file will be called which will then access the data through the defined models and calls the template to show the output to the User Interface
 
 
 ## *Commands to run the server and do migrations*
