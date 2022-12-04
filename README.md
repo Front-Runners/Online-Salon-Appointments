@@ -143,9 +143,9 @@ python manage.py runserver
 
 
 ### Customer SMS
-![Screenshot_2022-12-04-15-51-22-53_0ce57feeccaa51fb7deed04b4dbda235](https://user-images.githubusercontent.com/17834899/205515049-59a94578-d4f8-497a-8515-4e3d3a7b0ec6.jpg)
+![Screenshot_2022-12-04-15-51-22-53_0ce57feeccaa51fb7deed04b4dbda235](https://user-images.githubusercontent.com/17834899/205515049-59a94578-d4f8-497a-8515-4e3d3a7b0ec6.jpg =500x250)
 
-![Screenshot_2022-12-04-15-52-21-21_0ce57feeccaa51fb7deed04b4dbda235](https://user-images.githubusercontent.com/17834899/205515055-5318dde2-6c0f-4d1f-8a8b-0aa3c9297f5f.jpg)
+![Screenshot_2022-12-04-15-52-21-21_0ce57feeccaa51fb7deed04b4dbda235](https://user-images.githubusercontent.com/17834899/205515055-5318dde2-6c0f-4d1f-8a8b-0aa3c9297f5f.jpg =500x250)
 
 
 
