@@ -6,6 +6,9 @@ An online platform which facilitates the customers to plan and schedule hair sal
 
 
 ## *About the team and the project*
+
+![logo](https://user-images.githubusercontent.com/17834899/205514008-0b220eb7-7e0f-4b57-8c8c-5a1ef6fdc91d.png)
+
 Team Front Runners is representing a project which will make the scheduling and planning of personal services easy and efficient.
 The objective of this project is to develop a user-friendly website where customers can book their salon appointment for hair services.
 Our system will schedule the appointment according to the availability of practitioners and will give timely notifications before their appointment.
