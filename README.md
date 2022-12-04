@@ -43,6 +43,7 @@ url.py file. Then the corresponding function in the views.py file will be called
 
 ### Perform Migrations
 python manage.py makemigrations
+
 python manage.py migrate
 
 ### Run server
