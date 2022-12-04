@@ -26,7 +26,8 @@ Once logged in, customer will be automatically redirected to the Apppointments p
 
 In the Upcoming bookings, the customer can view his booking details page where he can either cancel or reschedule the appointment. Whenever a customer books an appointment, sms and mail will be triggered for both the customer as well as the practitioner. Mail and sms will be triggered for both cancellation and rescheduling.
 
-Customer will be allowed to cancel/rescheduled appointments scheduled within the next 12 hours upto 2 times only. Post which the account will get disabled. Once disabled both customer and the admin will get mail and sms regarding the account lock.
+> Customer will be allowed to cancel/rescheduled appointments scheduled within the next 12 hours upto 2 times only. Post which the account will get disabled.
+> Once disabled both customer and the admin will get mail and sms regarding the account lock.
 
 
 
@@ -42,12 +43,15 @@ url.py file. Then the corresponding function in the views.py file will be called
 ## *Commands to run the server and do migrations*
 
 ### Perform Migrations
+```
 python manage.py makemigrations
-
 python manage.py migrate
+```
 
 ### Run server
+```
 python manage.py runserver
+```
 
 
 
