@@ -28,6 +28,7 @@ Post signup, the user will get a verification mail. He will be able to login onl
 Once logged in, customer will be automatically redirected to the Apppointments page, where he can vew upcoming bookings, past bookings and also book a new appointment.
 
 In the Upcoming bookings, the customer can view his booking details page where he can either cancel or reschedule the appointment. Whenever a customer books an appointment, sms and mail will be triggered for both the customer as well as the practitioner. Mail and sms will be triggered for both cancellation and rescheduling.
+A reminder sms will be sent to customers one day before the booking date.
 
 > Customer will be allowed to cancel/rescheduled appointments scheduled within the next 12 hours upto 2 times only. Post which the account will get disabled.
 > Once disabled both customer and the admin will get mail and sms regarding the account lock.
@@ -128,5 +129,18 @@ python manage.py runserver
 
 ### View Appointments Page (Admin View)
 ![image](https://user-images.githubusercontent.com/17834899/205508026-0a96bf14-e97d-4ede-aa7b-4210bf43f760.png)
+
+
+### Customer Emails
+![Screenshot 2022-12-04 154538](https://user-images.githubusercontent.com/17834899/205515002-696b474f-7d8f-443d-ac66-9a1e9618e786.png)
+
+![Screenshot 2022-12-04 154339](https://user-images.githubusercontent.com/17834899/205515013-eb23bf56-cc67-4296-b51e-d80aae4d4a39.png)
+
+
+### Customer SMS
+![Screenshot_2022-12-04-15-51-22-53_0ce57feeccaa51fb7deed04b4dbda235](https://user-images.githubusercontent.com/17834899/205515049-59a94578-d4f8-497a-8515-4e3d3a7b0ec6.jpg)
+
+![Screenshot_2022-12-04-15-52-21-21_0ce57feeccaa51fb7deed04b4dbda235](https://user-images.githubusercontent.com/17834899/205515055-5318dde2-6c0f-4d1f-8a8b-0aa3c9297f5f.jpg)
+
 
 
