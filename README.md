@@ -1,9 +1,11 @@
 # Online-Salon-Appointments
 Repository for code
 
-
+*****************************The Project***************************************
 An online platform which facilitates the customers to plan and schedule hair salon services
 
+
+*****************************About the team and the project********************
 Team Front Runners is representing a project which will make the scheduling and planning of personal services easy and efficient.
 The objective of this project is to develop a user-friendly website where customers can book their salon appointment for hair services.
 Our system will schedule the appointment according to the availability of practitioners and will give timely notifications before their appointment.
@@ -13,9 +15,42 @@ This will be convenient and easy for the customers especially in their busy live
 
 
 
-Demo
+*****************************Work flow****************************************
+Customers and Practitioners can register their account through the Sign Up page. The email and mobile number should be unique. Passwords should meet minimum requirements
+are provided by the website. Post signup, the user will get a verification mail. He will be able to login only after successfull mail verification. 
+
+Once logged in, customer will be automatically redirected to the Apppointments page, where he can vew upcoming bookings, past bookings and also book a new appointment.
+
+In the Upcoming bookings, the customer can view his booking details page where he can either cancel or reschedule the appointment. Whenever a customer books an appointment, sms and mail will be triggered for both the customer as well as the practitioner. Mail and sms will be triggered for both cancellation and rescheduling.
+
+Customer will be allowed to cancel/rescheduled appointments scheduled within the next 12 hours upto 2 times only. Post which the account will get disabled. Once disabled both customer and the admin will get mail and sms regarding the account lock.
 
 
+
+*****************************Code Organization*************************************
+In this web application project, the code is divided into different applications, each component like the home page, about page, booking page is an application here. All project conmfiguration details
+are located in the file ./project/settings.py. Here we have mentioned the installed applications details, database connection details, SMTP server details etc. To run the server, ./manage.py file is used.
+
+Once the server starts, based on the URL provided in the browser, its matched with the URLs present in
+./project/urls.py. When the matched URL is found, the control will be given to the corresponding app's
+url.py file. Then the corresponding function in the views.py file will be called which will then access the data through the defined models and calls the template to show the output to the User Interface
+
+
+*****************************Commands to run the server and do migrations*************************************
+
+--Perform Migrations
+python manage.py makemigrations
+python manage.py migrate
+
+--Run server
+python manage.py runserver
+
+
+
+
+
+
+*****************************Sample Screens****************************************
 Welcome Screen
 ![image](https://user-images.githubusercontent.com/17834899/205507872-02c1d081-c529-4ab8-bae6-71cb0f505461.png)
 
