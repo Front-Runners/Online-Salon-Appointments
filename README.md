@@ -46,7 +46,7 @@ In this web application project, the code is divided into different applications
 are located in the file [./project/settings.py](../../tree/master/project/settings.py) . Here we have mentioned the installed applications details, database connection details, SMTP server details etc. To run the server, [./manage.py](../../tree/master/manage.py) file is used.
 
 Once the server starts, based on the URL provided in the browser, its matched with the URLs present in [./project/urls.py](../../tree/master/project/urls.py) . When the matched URL is found, the control will be given to the corresponding app's
-_url.py_ file. Then the corresponding function in the _views.py_ file will be called which will then access the data through the defined models and calls the template to show the output to the User Interface
+[url.py](../../tree/master/booking/urls.py) file. Then the corresponding function in the _views.py_ file will be called which will then access the data through the defined models and calls the template to show the output to the User Interface
 
 
 ## *Commands to run the server and do migrations*
