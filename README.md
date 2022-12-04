@@ -19,6 +19,12 @@ This will be convenient and easy for the customers especially in their busy live
 
 
 ## *Work flow*
+In this website, there are three types of login modes:
++ Customer
++ Practitioner
++ Admin
+
+
 Customers and Practitioners can register their account through the Sign Up page. The email and mobile number should be unique. Passwords should meet minimum requirements as provided by the website.
 >For admins, the account will be registered by our backend team at Front Runners and the credentials will be shared seperately
 >Registered practitioners will be promoted as staff by our backend team at Front Runners
