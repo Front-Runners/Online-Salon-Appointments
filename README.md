@@ -43,7 +43,7 @@ A reminder sms will be sent to customers one day before the booking date.
 
 ## *Code Organization*
 In this web application project, the code is divided into different applications, each component like the home page, about page, booking page is an application here. All project conmfiguration details
-are located in the file [./project/settings.py](url) . Here we have mentioned the installed applications details, database connection details, SMTP server details etc. To run the server, [./manage.py](url) file is used.
+are located in the file [./project/settings.py](../../project/settings.py) . Here we have mentioned the installed applications details, database connection details, SMTP server details etc. To run the server, [./manage.py](url) file is used.
 
 Once the server starts, based on the URL provided in the browser, its matched with the URLs present in [./project/urls.py](url) . When the matched URL is found, the control will be given to the corresponding app's
 _url.py_ file. Then the corresponding function in the _views.py_ file will be called which will then access the data through the defined models and calls the template to show the output to the User Interface
