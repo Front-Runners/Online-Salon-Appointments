@@ -1,4 +1,5 @@
 
+
   div.wrapper{
     position:fixed;
     padding:0;
@@ -10,6 +11,7 @@
     background-color: rgba(32, 29, 27, 0.7);
     backdrop-filter: saturate(180%) blur(10px);
     text-align: center;
+    overflow: auto;
   }
 
   div.main-text{
@@ -17,13 +19,13 @@
     border-radius: 5px;
     padding: 20px 20px;
     width: 700px;
-    margin: auto;
-    margin-top: 50px;
+    margin-top: 20px;
+    margin: auto;    
     font-family: 'Poiret One', cursive;
     font-size: 20px;
   }
 
-
+ 
   h1{
     margin-top: 100px;
     font-family: 'Tangerine', serif;
@@ -69,5 +71,9 @@
 
     p{
         margin-top: 50px;
+    }
+
+    img[alt="logo"]{
+      display: none;
     }
 }
