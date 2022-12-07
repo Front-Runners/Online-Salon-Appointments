@@ -56,10 +56,49 @@ div.wrapper{
     margin-bottom: 50px;
  }
 
+ div.wrapper {
+    animation: fadeInAnimation ease 0.3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;    
+}
+
+p{
+    width: auto;
+    padding: 50px 20px;
+    background-color: rgba(255, 255, 255, 0.7);
+    color: black;
+    border-radius: 5px;
+    margin-top: 50px;
+    font-weight: bold;
+}
+  
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
+}
+
 
 @media screen and (max-width: 1366px) {
     div.wrapper{
         position: relative;
         top: 125px;
+        bottom: 0px;
+        font-size: small;
+        display: grid;
+        margin-bottom: 200px;
+        overflow: auto;
+    }
+
+    button.btn-reschedule {
+        float: left;
+        margin-bottom: 30px;
+    }
+    
+    button.btn-cancel {
+        float: left;
     }
 }

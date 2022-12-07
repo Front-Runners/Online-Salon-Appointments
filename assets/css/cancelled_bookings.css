@@ -52,7 +52,7 @@ div.wrapper{
     backdrop-filter: saturate(180%) blur(10px);
     margin: auto;
     position: relative;
-    top: 250px;
+    top: 100px;
 }
 
 table{
@@ -92,11 +92,40 @@ table{
     margin-bottom: 50px;
  }
 
+ div.wrapper {
+    animation: fadeInAnimation ease 0.3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+  
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
+}
 
 
-@media screen and (max-width: 1366px) {
+
+ @media screen and (max-width: 1080px) {
     div.wrapper{
-        position: relative;
-        top: 150px;
+        width: 100%;
+        font-size: xx-small;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        overflow: scroll;
+    }
+
+    div.bookings-wrapper{
+        margin-top: 100px;
+    }
+
+    table{
+        width: 90%;
     }
 }

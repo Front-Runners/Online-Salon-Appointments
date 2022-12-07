@@ -192,9 +192,13 @@ h1{
 }
 
 
-@media screen and (max-width: 1366px) {
-    div.wrapper{
+@media screen and (max-width: 1080px) {
+    div.form-wrapper{
         position: relative;
-        top: 150px;
+        top: 50px;
+        width: 300px;
+		display: grid;
+		margin-bottom: 100px;
+      	overflow: auto;
     }
 }

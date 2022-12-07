@@ -27,6 +27,7 @@ input {
   border-radius: 5px;
   margin-top: 10px;
   margin-bottom: 20px;
+  width: 200px;
 }
 
 input:focus {
@@ -47,22 +48,30 @@ input:focus {
 
 div.form-wrapper{
   background-color: rgba(32, 29, 27, 0.7);
-  width: 300px;
+  width: 400px;
   padding-bottom: 500px;
-  padding-left: 40px;
+  padding-left: 60px;
   padding-top: 20px;
   backdrop-filter: saturate(180%) blur(10px);
   position: fixed;
   right: 0px;
   top: 50px;
-  height: 100%;
+  height: 100%;  
+}
+
+div.wrapper{
+  width: 100%;
   overflow: auto;
 }
 
+
+
 form{
+  align-self: center;
   position: relative;
-  left: 40px;
-  top: 20px;  
+  top: 100px;
+  margin-left: 70px;
+  margin-right: 50px;
 }
 
 #hint_id_password1 ul{
@@ -181,9 +190,31 @@ form{
   display: block;
 }
 
-@media screen and (max-width: 1366px){
-  form{
-    font-size: small;
+div.form-wrapper {
+  animation: fadeInAnimation ease 0.3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+  0% {
+      opacity: 0;
   }
+  100% {
+      opacity: 1;
+   }
+}
+
+@media screen and (max-width: 1080){
+
+  div.form-wrapper{
+    width: 100%;
+    height: fit-content;
+    font-size: large;
+}
+
+form{
+  margin: 50px;
+}
 
 }

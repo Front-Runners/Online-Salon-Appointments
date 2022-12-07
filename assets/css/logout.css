@@ -193,3 +193,15 @@ p{
 		-moz-transform:scale(.3);
 	}
 }
+
+
+@media screen and (max-width: 1080px) {
+    div.form-wrapper{
+        position: relative;
+        top: 50px;
+        width: 300px;
+		display: grid;
+		margin-bottom: 200px;
+      	overflow: auto;
+    }
+}

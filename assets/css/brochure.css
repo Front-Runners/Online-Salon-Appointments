@@ -3,7 +3,7 @@
 
 table{
    margin: auto;
-   margin-top: 150px;
+   margin-top: 100px;
    border-spacing: 20px;
    font-weight: bold;
 }
@@ -30,10 +30,15 @@ td:hover{
 }
 
 
-
 @media screen and (max-width: 1366px){
     td{
       font-size: small;
+    }
+
+    div.table-wrapper{
+      display: grid;
+      margin-bottom: 50px;
+      overflow: auto;
     }
   
   }

@@ -6,6 +6,7 @@ body {
     background-size: cover;
     color: white;
     overflow: auto !important;
+    font-family: 'Sora', sans-serif;
 }
 
 /*nav bar style*/
@@ -42,9 +43,6 @@ ul.navbar {
     height: 28px;
   }
 
-  a{
-    
-  }
   
   li a:hover:not(.active) {
     display: block;
@@ -64,4 +62,79 @@ ul.navbar {
     right: 0px;
     background-color: rgba(175, 58, 58, 0.87);
     color: white;
+  }
+
+  .mini,.special-mini{
+    display: none;
+  }
+
+  li.special{
+    transition: 0.3s;
+    color: black;
+    display: block;
+    text-align: center;
+    padding: 16px 16px;
+    height: 28px;
+    color: rgba(175, 58, 58);
+    font-weight: bolder;
+    font-size: larger;
+    float: right !important;
+    margin-right: 100px;    
+  }
+
+
+  @media screen and (max-width: 1080px){
+  .default{
+    display: none;
+  }
+
+  li.special{
+    display: none;
+  }
+
+  .mini{
+    display: flex;
+  }
+
+  li.special-mini{
+    height: 33px;
+    display: flex;
+    margin-top: 15px;
+    margin-right: 20px;
+    margin-left: 20px;
+    filter: opacity(0.3) drop-shadow(0 0 0 rgba(175, 58, 58));
+  }
+
+  img{
+    width: 32px;
+    height: 32px;
+  }
+
+  ul.navbar {
+    height: 65px;
+  }
+
+  li a {
+    height: 33px;
+  }
+
+  li a.active img{
+    color: white;
+  }
+
+  body{
+    background-image: url("/static/images/background6.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 200% 100%;
+  }
+
+  li a:hover:not(.active) {
+    background-color: rgba(194, 143, 48, 0.87);
+  }
+  
+  
+  li a.active {
+    background-color: rgba(194, 143, 48, 0.87);
+  }
   }
